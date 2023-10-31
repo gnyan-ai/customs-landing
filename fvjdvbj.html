@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON Data Filter</title>
+</head>
+
+<!-- <body>
+    <input type="text" id="search-bar" placeholder="Search for data">
+    <div class="search-result"></div>
+
+    <script>
+        // Select the input field and the data container
+        const searchInput = document.getElementById('search-bar');
+        const dataContainer = document.querySelector('.search-result');
+
+        // Fetch the JSON data
+        fetch('/js/data.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+                // Function to filter data based on user input
+                function filterData(searchTerm) {
+                    return data.filter(item => {
+                        // Adjust the conditions as needed for your specific search criteria
+                        return (
+                            item.product_description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            item.answer.hsn_code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            item.answer.classification_of_goods.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            item.answer.restrictions_prohibitions.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            item.answer.estimated_tariff_value.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            item.answer.required_certificates_license_from_authorities.toLowerCase().includes(searchTerm.toLowerCase())
+                        );
+                    });
+                }
+
+                // Handle input changes to trigger the filtering
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value;
+                    console.log(searchTerm);
+
+                    const filteredData = filterData(searchTerm);
+                    console.log(filteredData);
+                    // Display the filtered data
+                    renderFilteredData(filteredData);
+                });
+
+                // Function to display the filtered data
+                function renderFilteredData(filteredData) {
+                    dataContainer.innerHTML = ''; // Clear previous results
+
+                    if (filteredData.length === 0) {
+                        dataContainer.innerHTML = 'No results found.';
+                    } else {
+                        // Display the filtered data
+                        filteredData.forEach(item => {
+                            dataContainer.innerHTML += `
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Product Description</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.product_description}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>HSN Code</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.hsn_code}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Classification of Goods</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.classification_of_goods}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Restrictions/Prohibitions</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.restrictions_prohibitions}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Estimated Tariff Value</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.estimated_tariff_value}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Required Certificates/Licenses</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.required_certificates_license_from_authorities}</span>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body> -->
+
+<body>
+    <input type="text" id="search-bar" placeholder="Search for data">
+    <div class="search-result"></div>
+
+    <script>
+        // Select the input field and the data container
+        const searchInput = document.getElementById('search-bar');
+        const dataContainer = document.querySelector('.search-result');
+
+        // Fetch the JSON data
+        fetch('/js/data.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+
+                if (!Array.isArray(data)) {
+                    console.error('Data is not an array');
+                    return;
+                }
+                // const data = jsonData.items;
+
+                // Function to filter data based on user input
+                function filterData(searchTerm) {
+                    return data.filter(item => {
+                        return (
+                            (item.product_description && item.product_description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.hsn_code && item.answer.hsn_code.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.classification_of_goods && item.answer.classification_of_goods.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.restrictions_prohibitions && item.answer.restrictions_prohibitions.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.estimated_tariff_value && item.answer.estimated_tariff_value.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.required_certificates_license_from_authorities && item.answer.required_certificates_license_from_authorities.toLowerCase().includes(searchTerm.toLowerCase()))
+                        );
+                    });
+                }
+
+                // Handle input changes to trigger the filtering
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value;
+                    console.log(searchTerm);
+
+                    const filteredData = filterData(searchTerm);
+                    console.log(filteredData);
+                    // Display the filtered data
+                    renderFilteredData(filteredData);
+                });
+
+                // Function to display the filtered data
+                function renderFilteredData(filteredData) {
+                    dataContainer.innerHTML = ''; // Clear previous results
+                    console.log(filteredData);
+                    if (filteredData.length === 0) {
+                        dataContainer.innerHTML = 'No results found.';
+                    } else {
+                        // Display the filtered data
+                        filteredData.forEach(item => {
+                            console.log(item);
+                            dataContainer.innerHTML += `
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Product Description</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.product_description}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>HSN Code</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.hsn_code}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Classification of Goods</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.classification_of_goods}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Restrictions/Prohibitions</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.restrictions_prohibitions}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Estimated Tariff Value</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.estimated_tariff_value}</span>
+                                    </div>
+                                </div>
+                                <div class="search-list">
+                                    <div>
+                                        <a href="#">
+                                            <h3>Required Certificates/Licenses</h3>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <span>${item.answer.required_certificates_license_from_authorities}</span>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching or processing data:', error));
+    </script>
+</body>
+
+</html>

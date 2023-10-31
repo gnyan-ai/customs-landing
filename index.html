@@ -1,1 +1,112 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Customs clearance, Importation services, HTS code lookup, Harmonized Tariff Schedule, Import regulations, International trade, Goods classification, Trade compliance, Importation support, Customs documentation, Tariff rates, Import process, Customs experts, Importation solutions, Import assistance, Trade information." />
+    <meta name="description"
+        content=" Unlock the world of imports with ease. Explore our HTS code lookup tool for precise goods classification and expert customs clearance services. Start importing confidently." />
+    <title>GNYAN.AI - Efficient Customs Clearance Solutions & HTS Code Information.</title>
+    <link rel="stylesheet" href="css/index-style.css">
+    <link rel="stylesheet" href="css/index-responsive.css">
+    <link rel="icon" href="img/fav.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <main>
+        <div id="google-logo">
+            <img src="img/logo-home.png" alt="Google logo">
+        </div>
+        <form id="search-form" action="search-result.html" method="get">
+            <div id="form-input">
+                <div id="search-icon">
+                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                        </path>
+                    </svg>
+                </div>
+                <input id="search-bar" type="text" name="q" placeholder="Describe Your Product">
+            </div>
+            <div id="button-section">
+                <button type="submit" id="search"><i class="fa-solid fa-magnifying-glass"></i>Classify</button>
+            </div>
+            <div id="text-list">
+                <span>
+                    Welcome to our Product Classification Tool, your portal to simplified importation and international
+                    trade. With our user-friendly platform, you can easily describe your products, and our tool will
+                    help categorize them accurately. Whether you're an experienced importer or just starting out, our
+                    platform provides the information you need to navigate customs clearance and ensure compliance with
+                    import regulations. Say goodbye to the complexity of classification and embrace streamlined imports
+                    with gnyan.ai.
+                </span>
+            </div>
+        </form>
+    </main>
+    
+    <footer>
+        <section id="bottom">
+            <div id="nav-links">
+                <div>
+                    <p>
+                        © 2023 Copyrights by
+                        <a href="#" class="">Plaine.
+                        </a>
+                        All Rights Reserved.
+                    </p>
+                </div>
+                <div class="footer-img">
+                    <img src="./img/Digital India.png" alt="">
+                    <img src="./img/Made in India.png" alt="">
+                </div>
+            </div>
+        </section>
+    </footer>
+
+
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('search-form');
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Create a FormData object from the form
+                const formData = new FormData(form);
+
+                const headers = {
+                    'Content-Type': 'application/json', // Set the content type to JSON
+                    'Authorization': 'Bearer YOUR_ACCESS_TOKEN', // Include any necessary authorization headers
+                    // Add any other headers you need
+                };
+
+                // Define the data you want to send in the request body as a JavaScript object
+                const data = {
+                    key1: 'value1',
+                    key2: 'value2',
+                };
+
+                // Send a POST request to your API endpoint using fetch
+                try {
+                    const response = await fetch('http://192.168.28.3:8000/data-api-v1/query', {
+                        method: 'POST',
+                        headers: headers,
+                        body: data,
+                    });
+                    console.log("response", response);
+                } catch (error) {
+                    console.error('Request failed:', error);
+                }
+            });
+        });
+    </script> -->
+</body>
+
+</html>

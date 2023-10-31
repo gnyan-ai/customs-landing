@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="Customs clearance, Importation services, HTS code lookup, Harmonized Tariff Schedule, Import regulations, International trade, Goods classification, Trade compliance, Importation support, Customs documentation, Tariff rates, Import process, Customs experts, Importation solutions, Import assistance, Trade information." />
+    <meta name="description"
+        content=" Unlock the world of imports with ease. Explore our HTS code lookup tool for precise goods classification and expert customs clearance services. Start importing confidently." />
+    <title>GNYAN.AI - Efficient Customs Clearance Solutions & HTS Code Information.</title>
+    <link rel="icon" href="img/fav.png">
+    <link rel="stylesheet" href="css/search-result.css">
+    <link rel="stylesheet" href="css/search-result-responsive.css">
+</head>
+
+<body>
+    <div class="wraper">
+        <header>
+            <div id="google-logo">
+                <a href="index.html">
+                    <img src="img/logo-home.png" alt="google-logo">
+                </a>
+            </div>
+            <form action="search-result.html" method="GET">
+                <div id="form-input">
+                    <div id="search-icon">
+                        <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                            </path>
+                        </svg>
+                    </div>
+                    <input id="search-bar" onkeydown="handlehtml()" type="text" name="q">
+                </div>
+            </form>
+
+        </header>
+        <main>
+            <div class="container">
+                <div class="search-result">
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <footer id="footer">
+        <section id="bottom">
+            <div id="nav-links">
+                <div>
+                    <p>
+                        © 2023 Copyrights by
+                        <a href="#" class="">Plaine.
+                        </a>
+                        All Rights Reserved.
+                    </p>
+                </div>
+                <div class="footer-img">
+                    <img src="./img/Digital India.png" alt="">
+                    <img src="./img/Made in India.png" alt="">
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script defer async src="https://cse.google.com/cse.js?cx=e7a4b606282364360">
+    </script>
+    <!-- <div class="result-body">
+        <div class="gcse-searchresults-only">
+
+        </div>
+    </div> -->
+
+    <script defer>
+        let params = new URLSearchParams(location.search);
+        document.querySelector("#search-bar").value = params.has('q') ? params.get('q') : "";
+    </script>
+
+    <script>
+
+
+
+
+        // Select the input field and the data container
+        const searchInput = document.getElementById('search-bar');
+        const dataContainer = document.querySelector('.search-result');
+
+
+
+        // Fetch the JSON data
+        fetch('/js/data.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+
+                if (!Array.isArray(data)) {
+                    console.error('Data is not an array');
+                    return;
+                }
+                // const data = jsonData.items;
+
+                // Function to filter data based on user input
+                function filterData(searchTerm) {
+                    return data.filter(item => {
+                        return (
+                            (item.product_decription && item.product_decription.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.hsn_code && item.answer.hsn_code.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.classification_of_goods && item.answer.classification_of_goods.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.restrictions_prohibitions && item.answer.restrictions_prohibitions.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.estimated_tariff_value && item.answer.estimated_tariff_value.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                            (item.answer.required_certificates_license_from_authorities && item.answer.required_certificates_license_from_authorities.toLowerCase().includes(searchTerm.toLowerCase()))
+                        );
+                    });
+                }
+
+                // Handle input changes to trigger the filtering
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value;
+                    console.log(searchTerm);
+
+                    const filteredData = filterData(searchTerm);
+                    console.log(filteredData);
+                    // Display the filtered data
+                    renderFilteredData(filteredData);
+                });
+
+                // Function to display the filtered data
+                function renderFilteredData(filteredData) {
+                    dataContainer.innerHTML = ''; // Clear previous results
+                    console.log(filteredData);
+                    if (filteredData.length === 0) {
+                        dataContainer.innerHTML = `No results found.`;
+                        if (dataContainer.innerHTML === "No results found.") {
+                            document.getElementById("footer").style.position = 'absolute';
+                        }
+                    } else {
+                        // Display the filtered data
+                        filteredData.forEach(item => {
+                            console.log(item);
+                            dataContainer.innerHTML += `
+                            <div class="search-list">
+                                <div>
+                                    <a href="#">
+                                        <h3>Product Description</h3>
+                                    </a>
+                                </div>
+                                <div>
+                                    <span>${item.product_decription}</span>
+                                </div>
+                            </div>
+                            <div class="search-list">
+                                <div>
+                                    <a href="#">
+                                        <h3>HSN Code</h3>
+                                    </a>
+                                </div>
+                                <div>
+                                    <span>${item.answer.hsn_code}</span>
+                                </div>
+                            </div>
+                            <div class="search-list">
+                                <div>
+                                    <a href="#">
+                                        <h3>Classification of Goods</h3>
+                                    </a>
+                                </div>
+                                <div>
+                                    <span>${item.answer.classification_of_goods}</span>
+                                </div>
+                            </div>
+                            <div class="search-list">
+                                <div>
+                                    <a href="#">
+                                        <h3>Restrictions/Prohibitions</h3>
+                                    </a>
+                                </div>
+                                <div>
+                                    <span>${item.answer.restrictions_prohibitions}</span>
+                                </div>
+                            </div>
+                            <div class="search-list">
+                                <div>
+                                    <a href="#">
+                                        <h3>Estimated Tariff Value</h3>
+                                    </a>
+                                </div>
+                                <div>
+                                    <span>${item.answer.estimated_tariff_value}</span>
+                                </div>
+                            </div>
+                            <div class="search-list">
+                                <div>
+                                    <a href="#">
+                                        <h3>Required Certificates/Licenses</h3>
+                                    </a>
+                                </div>
+                                <div>
+                                    <span>${item.answer.required_certificates_license_from_authorities}</span>
+                                </div>
+                            </div>
+                        `;
+                        });
+                    }
+                }
+            })
+            .catch(error => console.error('Error fetching or processing data:', error));
+        function handlehtml() {
+            console.log(dataContainer);
+            if (dataContainer.innerHTML === "No results found.") {
+                document.getElementById("footer").style.position = 'absolute';
+            } else if (dataContainer.innerHTML !== "No results found.") {
+                document.getElementById("footer").style.position = 'relative';
+            }
+        }
+    </script>
+</body>
+
+</html>

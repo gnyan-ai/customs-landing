@@ -1,0 +1,249 @@
+@media all and (min-width: 992px) and (max-width: 1199px) {
+    #form-input {
+        width: 700px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #form-input {
+        width: 600px;
+    }
+}
+
+@media all and (min-width: 680px) and (max-width: 767px) {
+    #form-input {
+        width: 500px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 679px) {
+    #form-input {
+        width: 400px;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 575px) {
+    #form-input {
+        width: 300px;
+    }
+
+}
+
+@media all and (min-width: 420px) and (max-width: 479px) {
+    #form-input {
+        width: 270px;
+    }
+
+    #google-logo {
+        margin-bottom: 25px;
+    }
+
+    .container {
+        max-width: 26rem;
+        margin-left: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    #bottom {
+        height: auto;
+    }
+}
+
+@media all and (min-width: 385px) and (max-width: 419px) {
+    #form-input {
+        width: 270px;
+    }
+
+    #nav-links img {
+        height: 27px;
+        padding: 0 5px;
+    }
+
+    #google-logo {
+        margin-bottom: 25px;
+    }
+
+    .container {
+        max-width: 23rem;
+        margin-left: 1rem;
+    }
+
+    header {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    #bottom {
+        height: auto;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    #nav-links p {
+        padding: 5px 0 10px 0;
+    }
+
+    #nav-links .footer-img {
+        position: relative;
+        display: flex;
+        right: 0;
+        justify-content: center;
+    }
+}
+
+@media all and (min-width: 365px) and (max-width: 384px) {
+    #form-input {
+        width: 270px;
+    }
+
+    #google-logo {
+        margin-bottom: 25px;
+    }
+
+    .container {
+        max-width: 21rem;
+        margin-left: 1rem;
+    }
+
+    /* #nav-links p {
+        padding: 20px 8px;
+    } */
+
+    header {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    #bottom {
+        height: auto;
+    }
+
+    #nav-links img {
+        height: 27px;
+        padding: 0 5px;
+    }
+
+    #nav-links { 
+        padding: 5px;
+    }
+
+    #nav-links p {
+        padding: 5px 0 10px 0;
+    }
+
+    #nav-links .footer-img {
+        position: relative;
+        display: flex;
+        right: 0;
+        justify-content: center;
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 364px) {
+    #form-input {
+        width: 270px;
+    }
+
+    #nav-links .footer-img {
+        position: relative;
+        display: flex;
+        right: 0;
+        justify-content: center;
+    }
+
+    #google-logo {
+        margin-bottom: 25px;
+    }
+
+    #nav-links img {
+        height: 27px;
+        padding: 0 5px;
+    }
+
+    .container {
+        max-width: 21rem;
+        margin-left: 1rem;
+    }
+
+    /* #nav-links p {
+        padding: 20px 8px;
+    } */
+
+    header {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    #bottom {
+        height: auto;
+    }
+
+    #nav-links { 
+        padding: 5px;
+    }
+
+    #nav-links p {
+        padding: 5px 0 10px 0;
+    }
+}
+
+@media all and (min-width: 0) and (max-width: 319px) {
+    #form-input {
+        width: 270px;
+    }
+
+    
+
+    #nav-links { 
+        padding: 5px;
+    }
+
+    .error-list {
+        margin: 99px;
+    }
+
+    #google-logo {
+        margin-bottom: 25px;
+    }
+
+    #nav-links img {
+        height: 27px;
+        padding: 0 5px;
+    }
+
+    #nav-links .footer-img {
+        position: relative;
+        display: flex;
+        right: 0;
+        justify-content: center;
+    }
+
+    .container {
+        max-width: 26rem;
+        margin-left: 1rem;
+    }
+
+    /* #nav-links p {
+        padding: 20px 8px;
+    } */
+
+    header {
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+
+    #nav-links p {
+        padding: 5px 0 10px 0;
+    }
+}
